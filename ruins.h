@@ -1,15 +1,22 @@
 #ifndef RUINS_H
 #define RUINS_H
-#include "player.h"
 #include <memory>
 #include <string>
 #include <vector>
 #include <iostream>
+#include "character.h"
+#include "player.h"
+#include "monster.h"
+#include <ctime>
+using std::string;
+using std::cout;
+
+
 class ruins
 {
     public:
         ruins(int x,int y);
-        void initializeRuins(player &p);
+        void initializeRuins(player &p,monster &m);
         void render();
         bool isWall(int x, int y) const;
         bool isOutOfBounds(int x, int y) const;
@@ -18,6 +25,7 @@ class ruins
 
 
         const std::vector<std::pair<int, int>>& getCoinPositions() const ;
+
 
     private:
         int width,height;
@@ -31,6 +39,8 @@ class ruins
         std::vector<std::pair<int, int>> coinPositions;
         static constexpr char coinchar = '$';
         static constexpr char treasurechar = 't';
+
+
 };
 
 #endif // RUINS_H
