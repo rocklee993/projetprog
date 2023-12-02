@@ -33,7 +33,7 @@ void ruins::initializeRuins(player& p,monster& m)
         {
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
             {
-                grid[i][j] = '#';
+                grid[i][j] = wallchar;
             }
             else
             {
@@ -49,7 +49,7 @@ void ruins::initializeRuins(player& p,monster& m)
 
 
 
-                        if (rand() % 100 < 80 )
+                        if (rand() % 100 < 20 )
                         {
                             coinPositions.push_back({j, i});
                             //grid[i][j] = coinchar;
@@ -105,34 +105,25 @@ void ruins::render()
     cout<<'\n';
 
 }
-bool ruins::isOutOfBounds(int x, int y) const
-{
-    return (x < 0 || x >= width || y < 0 || y >= height);
-}
+//bool ruins::isOutOfBounds(int x, int y) const
+//{
+  //  return (x < 0 || x >= width || y < 0 || y >= height);
+//}
 
 bool ruins::isWall(int x, int y) const
 {
-    if (isOutOfBounds(x, y))
-    {
-        return true;
-    }
+
     return grid[y][x] == wallchar;
 }
 
 bool ruins::isGold(int x, int y) const
 {
-    if (isOutOfBounds(x, y))
-    {
-        return true;
-    }
+
     return grid[y][x] == coinchar;
 }
 bool ruins::isTreasure(int x, int y) const
 {
-    if (isOutOfBounds(x, y))
-    {
-        return true;
-    }
+
     return grid[y][x] == treasurechar;
 }
 

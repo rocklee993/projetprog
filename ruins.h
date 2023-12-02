@@ -19,7 +19,7 @@ class ruins
         void initializeRuins(player &p,monster &m);
         void render();
         bool isWall(int x, int y) const;
-        bool isOutOfBounds(int x, int y) const;
+        //bool isOutOfBounds(int x, int y) const;
         bool isGold(int x, int y) const;
         bool isTreasure(int x, int y) const;
 
@@ -35,7 +35,7 @@ class ruins
 
 
         std::vector<std::vector<char>> grid;
-        static constexpr char wallchar = '%';
+        static constexpr char wallchar = '#';
         std::vector<std::pair<int, int>> coinPositions;
         static constexpr char coinchar = '$';
         static constexpr char treasurechar = 't';
