@@ -8,13 +8,17 @@ using std::ostream;
 class player : public character
 {
     public:
-        player(int x,int y);
-
+        player(int x,int y,double health,double pointForce,bool player,char symbol);
         int bourse() const;
-        void showstats(std::ostream& ost)const;
+        void showstats(std::ostream& ost) const;
         bool treasurefound();
         void addbourse();
         void foundTreasure();
+        void attack(double force ,&monster monster) override;
+        void getDamage(double damage) override;
+          void move(int dx,int dy) override;
+
+
     protected:
 
     private:

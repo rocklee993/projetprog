@@ -8,18 +8,17 @@
 class monster : public character
 {
     public:
-        monster(int x,int y);
-        virtual ~monster();
-        void addmonster(monster& m);
-        std::vector<std::unique_ptr<monster>> monsters;
-
-
-    protected:
+        monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite);
+        void attack(double force, player& player) override;
+        void getDamage(double damage) override;
+        std::vector<int> getRandomDirection();
 
     private:
+        int d_pourcentageHabilite;
         static constexpr bool d_isPlayer = false;
 
 
 };
+
 
 #endif // MONSTER_H

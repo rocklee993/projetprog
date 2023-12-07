@@ -19,12 +19,12 @@ void ruins::initializeRuins(player& p,monster& m)
             if (grid[i][j] != wallchar && grid[i][j] != coinchar && grid[i][j] != treasurechar ) grid[i][j] = '.';
         }
     }
-    int x = p.getx();
-    int y = p.gety();
+    int x = p.getX();
+    int y = p.getY();
 
     grid[y][x] = p.getSymbol();
-    int x1 = m.getx();
-    int y1 = m.gety();
+    int x1 = m.getX();
+    int y1 = m.getY();
 
     grid[y1][x1] = m.getSymbol();
     for (int i = 0; i < height; i++)
@@ -39,7 +39,7 @@ void ruins::initializeRuins(player& p,monster& m)
             {
                 if(wall == false && coin == false)
                 {
-                    if(i!=p.gety() && j!=p.getx() && i!=m.gety() && j!=m.getx() && grid[i][j] != treasurechar)
+                    if(i!=p.getY() && j!=p.getX() && i!=m.getY() && j!=m.getX() && grid[i][j] != treasurechar)
                     {
 
                         if (rand() % 100 < 20)

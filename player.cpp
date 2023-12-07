@@ -1,8 +1,8 @@
 #include "player.h"
-
-player::player(int x,int y):character(x,y,20,10,true,'p') , d_bourse{100} , d_treasurefound{false}
+#include <string>
+player::player(int x,int y,double health,double pointForce,bool player,char symbol):character(x,y,health,pointForce,true,'p') , d_bourse{0} , d_treasurefound{false}
 {
-    //ctor
+
 }
 
 
@@ -17,8 +17,8 @@ void player::addbourse(){
 void player::showstats(std::ostream& ost)const{
     ost<<"player stats : "<<std::endl;
     ost<<"gold :"<<d_bourse <<"$"<<std::endl;
-    ost<<"health : "<<d_health<<std::endl;
-    ost<<"ad :"<<d_damage<<std::endl;
+    ost<<"health : "<< std::to_string(getHealth())<<std::endl;
+    ost<<"Force Point :"<<std::to_string(getPointForce())<<std::endl;
 
 }
 
@@ -27,4 +27,16 @@ bool player::treasurefound() {
 }
 void player::foundTreasure() {
     d_treasurefound = true;
+}
+
+void player::attack((double force ,&monster monster)) {
+// a continuer
+}
+
+void player::getDamage(double damage) {
+// a continuer
+}
+
+void player::move(int dx,int dy){
+// a continuer
 }
