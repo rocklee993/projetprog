@@ -5,18 +5,14 @@
 #include "monster.h"
 #include "player.h"
 #include <windows.h>
-
+#include"gamemanager.h"
 using namespace std;
 
 // Function to display available directions and get user input
-char getDirection()
-{
-    cout << "What will be your next move? (1/2/3/4/5/6/7/8/9): " << endl;
-    char direction;
-    cin >> direction;
-    return direction;
-}
-void handleMonsterMovement(ruins& r, player& p, monster& m)
+
+
+// monster see
+/*void handleMonsterMovement(ruins& r, player& p, monster& m)
 {
     int playerX = p.getX();
     int playerY = p.getY();
@@ -44,9 +40,9 @@ void handleMonsterMovement(ruins& r, player& p, monster& m)
     if (!r.isWall(monsterX + dx, monsterY + dy)) {
         m.move(dx, dy);
     }
-}
+} */
 
-void handleMovement(ruins& r, player& p,monster& m, vector<pair<int, int>>& coinPositions, int dx, int dy)
+/*void handleMovement(ruins& r, player& p,monster& m, vector<pair<int, int>>& coinPositions, int dx, int dy)
 {
     bool invalidMove = false;
 
@@ -62,8 +58,6 @@ void handleMovement(ruins& r, player& p,monster& m, vector<pair<int, int>>& coin
 
 
     }
-
-
 
     // Check for coin collection
     for (auto it = coinPositions.begin(); it != coinPositions.end(); )
@@ -97,65 +91,24 @@ void handleMovement(ruins& r, player& p,monster& m, vector<pair<int, int>>& coin
     {
         cout << "Can't move into a wall! Choose a different direction." << endl;
     }
-}
+} */
 
 int main()
 {
     ruins r(24, 10);
     player play(8,5,100.0,100.0,true,'p');
+   // monsters.push_back(std::make_unique<monster>(1, 1, 10, 10, false, 'm', 20));
+    gamemanager gm(play,r);
+    gm.addMonster(std::make_unique<monster>(1, 1, 10, 10, false, 'm1', 20));
+    gm.addMonster(std::make_unique<monster>(1, 2, 10, 10, false, 'm2', 20));
+    gm.startGame();
+    //int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite
 
-    monster m(1, 1);
-    r.initializeRuins(p, m);
-    r.render();
     vector<pair<int, int>> coinPositions = r.getCoinPositions();
 
-    while (true)
-    {
-        char direction = getDirection();
-        int dx = 0, dy = 0;
 
-        switch (direction)
-        {
-        case '2':
-            dy = -1;
-            break;
-        case '4':
-            dx = -1;
-            break;
-        case '8':
-            dy = 1;
-            break;
-        case '6':
-            dx = 1;
-            break;
-        case '1':
-            dx = -1;
-            dy = -1;
-            break;
-        case '3':
-            dx = 1;
-            dy = -1;
-            break;
-        case '7':
-            dx = -1;
-            dy = 1;
-            break;
-        case '9':
-            dx = 1;
-            dy = 1;
-            break;
-        case '5':
-            cout << "Player chose not to move" << endl;
-            break;
-        default:
-            cout << "Invalid direction. Please use 1/2/3/4/5/6/7/8/9." << endl;
-            continue;
-        }
 
-        handleMovement(r, p,m, coinPositions, dx, dy);
-    }
 
-    return 0;
 
-    // fouad
+
 }

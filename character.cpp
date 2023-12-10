@@ -25,8 +25,17 @@ char character::getSymbol()const{
 double character::getPointForce()const{
     return d_pointForce;
 }
-void character::move(int dx, int dy){
 
-    d_posX += dx;
-    d_posY += dy;
+void character:: move() {
+ d_posX = d_nextDirection[0];
+ d_posY = d_nextDirection[1];
+ d_nextDirection[0] = 0;
+ d_nextDirection[1] = 0;
+
 }
+
+
+std::vector<int> character::getNextDirection() const {
+return d_nextDirection;
+}
+

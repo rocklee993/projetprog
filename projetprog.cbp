@@ -40,6 +40,8 @@
 		</Compiler>
 		<Unit filename="character.cpp" />
 		<Unit filename="character.h" />
+		<Unit filename="gamemanager.cpp" />
+		<Unit filename="gamemanager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monster.cpp" />
 		<Unit filename="monster.h" />

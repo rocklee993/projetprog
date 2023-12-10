@@ -16,7 +16,7 @@ class ruins
 {
     public:
         ruins(int x,int y);
-        void initializeRuins(player &p,monster &m);
+        void initializeRuins(player &p,std::vector<std::unique_ptr<monster>>& monsters);
         void render();
         bool isWall(int x, int y) const;
         //bool isOutOfBounds(int x, int y) const;

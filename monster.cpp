@@ -6,23 +6,26 @@ character{x,y,health,pointForce,false,'m'},d_pourcentageHabilite{pourcentageHabi
 
 }
 
-void monster::attack((double force ,&player player)) {
-player.getDamage(force);
+void monster::attack(character& character) {
+character.getDamage(d_pointForce);
 }
 
 void monster::getDamage(double damage) {
  d_health -= damage;
 }
 
-vector<int> monster::getRandomDirection(){
+void monster::getRandomDirection() {
 
-    vector<int> position{0,0};
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    position[0] = std::uniform_int_distribution<int> dis(-1, 1);
-    position[1] = std::uniform_int_distribution<int> dis(-1, 1);
-    return position;
-}
+
+  for(int i=0; i< 2;i++){
+     d_nextDirection[i] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1 et 1
+  }
 
 }
+
+void monster::chooseDirection() {
+getRandomDirection();
+
+}
+
 

@@ -3,6 +3,7 @@
 #include <iostream>
 using std::ostream;
 #include "character.h"
+#include "monster.h"
 
 
 class player : public character
@@ -12,16 +13,19 @@ class player : public character
         int bourse() const;
         void showstats(std::ostream& ost) const;
         bool treasurefound();
+        void getDirection();
         void addbourse();
         void foundTreasure();
-        void attack(double force ,&monster monster) override;
+        void attack(character& character) override;
         void getDamage(double damage) override;
-          void move(int dx,int dy) override;
+        void chooseDirection() override;
+
 
 
     protected:
 
     private:
+        char getDirection() const;
         int d_bourse;
         bool d_treasurefound;
 };

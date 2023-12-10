@@ -3,15 +3,16 @@
 #include <memory>
 #include <vector>
 #include "character.h"
-
+#include "player.h"
 
 class monster : public character
 {
     public:
         monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite);
-        void attack(double force, player& player) override;
         void getDamage(double damage) override;
-        std::vector<int> getRandomDirection();
+        void attack(character& character) override ;
+        void  getRandomDirection();
+        void chooseDirection() override;
 
     private:
         int d_pourcentageHabilite;
