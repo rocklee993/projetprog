@@ -1,14 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-using std::ostream;
 #include "character.h"
+#include "defence.h"
+using std::ostream;
+
 
 
 class player : public character
 {
     public:
-        player(int x,int y);
+        player(int x,int y, int solide_epee, int solide_armure);
 
         int bourse() const;
         void showstats(std::ostream& ost)const;
@@ -18,6 +20,8 @@ class player : public character
     protected:
 
     private:
+        epee d_epee;
+        armure d_armure;
         int d_bourse;
         bool d_treasurefound;
 };

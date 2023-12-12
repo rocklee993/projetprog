@@ -1,6 +1,8 @@
 #include "player.h"
 
-player::player(int x,int y):character(x,y,20,10,true,'p') , d_bourse{100} , d_treasurefound{false}
+player::player(int x,int y, int solide_epee, int solide_armure):
+    character(x,y,20,10,true,'p') , d_bourse{100} , d_treasurefound{false}, d_epee{solide_epee}, d_armure{solide_armure}
+
 {
     //ctor
 }
