@@ -23,9 +23,6 @@ void monster::getRandomDirection() {
 
 }
 
-void monster::chooseDirection() {
-getRandomDirection();
 
-}
 
 

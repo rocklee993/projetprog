@@ -12,7 +12,7 @@ class monster : public character
         void getDamage(double damage) override;
         void attack(character& character) override ;
         void  getRandomDirection();
-        void chooseDirection() override;
+
 
     private:
         int d_pourcentageHabilite;

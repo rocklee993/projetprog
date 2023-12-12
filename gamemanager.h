@@ -13,7 +13,7 @@ class gamemanager
         void monsterTurn();
         void gameover();
         void win();
-        bool checkWall(character& c,int x , int y) const;
+        bool checkWall(int x , int y) const;
 
     private:
         player d_player;

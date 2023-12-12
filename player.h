@@ -13,7 +13,7 @@ class player : public character
         int bourse() const;
         void showstats(std::ostream& ost) const;
         bool treasurefound();
-        void getDirection();
+        char getDirection() const;
         void addbourse();
         void foundTreasure();
         void attack(character& character) override;
@@ -25,7 +25,6 @@ class player : public character
     protected:
 
     private:
-        char getDirection() const;
         int d_bourse;
         bool d_treasurefound;
 };

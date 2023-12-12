@@ -24,7 +24,8 @@ class ruins
         bool isTreasure(int x, int y) const;
 
 
-        const std::vector<std::pair<int, int>>& getCoinPositions() const ;
+        std::vector<std::pair<int, int>>& getCoinPositions() ;
+
 
 
     private:

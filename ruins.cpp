@@ -19,7 +19,7 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
     int x = p.getX();
     int y = p.getY();
 
-    grid[x][y] = p.getSymbol();
+    grid[y][x] = p.getSymbol();
 
     for (auto& m : monsters) {
         int mx = m->getX();
@@ -59,7 +59,7 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
     coin = true;
     wall = true;
 }
-const std::vector<std::pair<int, int>>& ruins::getCoinPositions() const
+ std::vector<std::pair<int, int>>& ruins::getCoinPositions()
 {
     return coinPositions;
 }

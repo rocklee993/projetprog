@@ -39,55 +39,55 @@ void player::getDamage(double damage) {
 // a continuer
 }
 
-void player:: chooseDirection() {
-    bool validecharacter;
+void player::chooseDirection() {
+    bool validecharacter = false;
 
+       d_nextDirection[0] = 0;
+        d_nextDirection[1] = 0;
     do {
         validecharacter = true;
         char character = getDirection();
 
         switch (character) {
+            case '1':
+                d_nextDirection[0] = -1;
+                d_nextDirection[1] = 1;
+                break;
             case '2':
-                d_nextDirection[1] = -1;
+                d_nextDirection[1] = 1;
+                break;
+            case '3':
+                d_nextDirection[0] = 1;
+                d_nextDirection[1] = 1;
                 break;
             case '4':
                 d_nextDirection[0] = -1;
                 break;
-            case '8':
-                d_nextDirection[1] = 1;
+            case '5':
+                std::cout << "Player chose not to move" << std::endl;
                 break;
             case '6':
                 d_nextDirection[0] = 1;
                 break;
-            case '1':
-                d_nextDirection[0]= -1;
-                d_nextDirection[1] = -1;
-                break;
-            case '3':
-                d_nextDirection[0]= 1;
-                d_nextDirection[1] = -1;
-                break;
             case '7':
                 d_nextDirection[0] = -1;
-                d_nextDirection[1] = 1;
+                d_nextDirection[1] = -1;
+                break;
+            case '8':
+                d_nextDirection[1] = -1;
                 break;
             case '9':
                 d_nextDirection[0] = 1;
-                d_nextDirection[1] = 1;
-                break;
-            case '5':
-                std::cout << "Player chose not to move" << std::endl;
+                d_nextDirection[1] = -1;
                 break;
             default:
                 std::cout << "Invalid direction. Please use 1/2/3/4/5/6/7/8/9." << std::endl;
-                valideDirection = false;
+                validecharacter = false;
                 continue;
         }
 
-    } while (valideDirection == false);
-
+    } while (!validecharacter);
 }
-
 char  player::getDirection() const
 {
     std::cout << "What will be your next move? (1/2/3/4/5/6/7/8/9): " << std::endl;

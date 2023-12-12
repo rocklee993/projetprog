@@ -1,6 +1,6 @@
 #include "character.h"
 
-character::character(int x,int y,double health,double pointForce,bool player,char symbol):d_posX{x},d_posY{y},d_health{health},d_pointForce{pointForce},d_isPlayer{player},d_symbol{symbol}
+character::character(int x,int y,double health,double pointForce,bool player,char symbol):d_posX{x},d_posY{y},d_health{health},d_pointForce{pointForce},d_isPlayer{player},d_symbol{symbol},d_nextDirection{0,0}
 {
     //ctor
 }
@@ -27,10 +27,10 @@ double character::getPointForce()const{
 }
 
 void character:: move() {
- d_posX = d_nextDirection[0];
- d_posY = d_nextDirection[1];
- d_nextDirection[0] = 0;
- d_nextDirection[1] = 0;
+d_posX += d_nextDirection[0];
+d_posY += d_nextDirection[1];
+d_nextDirection[0] = 0;
+d_nextDirection[1] = 0;
 
 }
 
