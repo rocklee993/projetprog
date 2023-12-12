@@ -7,10 +7,9 @@ class defence
 {
      public:
         defence(int solide);
-        //virtual void perd() = 0;
-        //virtual void recupere(int piece) = 0;
+        void perd();
+        void recupere(int piece);
         int solide() const;
-        virtual ~defence() = default;
 
     protected:
 
@@ -22,24 +21,15 @@ class epee: public defence
 {
     public:
         epee(int solide);
-       // void perd() override;
-        //void recupere(int piece) override;
 
-    protected:
-
-    private:
 };
 
 class armure: public defence
 {
     public:
         armure(int solide);
-        //void perd() override;
-        //void recupere(int piece) override;
 
-    protected:
 
-    private:
 };
 
 

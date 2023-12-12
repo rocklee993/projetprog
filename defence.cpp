@@ -23,3 +23,14 @@ armure::armure(int solide):
 {
     //ctor
 }
+
+void defence::perd()
+{
+    d_solide -=1;
+}
+
+
+void defence::recupere(int piece)
+{
+    d_solide += piece;
+}
