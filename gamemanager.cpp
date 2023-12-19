@@ -34,19 +34,14 @@ void gamemanager::monsterTurn(){
 
 
  for (auto& m : d_monsters) {
-        m->chooseDirection();
 
-  std::vector<int>  nextDirection = m->getNextDirection();
-    int newX = m->getX() + nextDirection[0];
-    int newY = m->getY() + nextDirection[1];
-
-    while (checkWall(newX, newY)) {
-        m->chooseDirection();
-             nextDirection = m->getNextDirection();
-        newX = m->getX() + nextDirection[0];
-        newY = m->getY() + nextDirection[1];
-    }
-
+        int newX, newY;
+do {
+   m->chooseDirection();
+ std::vector<int>  nextDirection = m->getNextDirection();
+    newX = m->getX() + nextDirection[0];
+    newY = m->getY() + nextDirection[1];
+} while (checkWall(newX, newY));
     m->move();
 }
 }
@@ -106,7 +101,7 @@ void gamemanager::startGame() {
     d_ruins.initializeRuins(d_player, d_monsters);
     d_ruins.render();
     playerTurn();
-   // monsterTurn();
+    monsterTurn();
 }
 }
 void gamemanager::win() {
