@@ -33,30 +33,30 @@ bool  gamemanager::checkWall(int x , int y) const {
 void gamemanager::monsterTurn(){
 
 
- for (auto& m : d_monsters) {
-
-        int newX, newY;
-do {
-   m->chooseDirection();
- std::vector<int>  nextDirection = m->getNextDirection();
-    newX = m->getX() + nextDirection[0];
-    newY = m->getY() + nextDirection[1];
-} while (checkWall(newX, newY));
-    m->move();
-}
+// for (auto& m : d_monsters) {
+//
+//        int newX, newY;
+//do {
+//   m->chooseDirection();
+// std::vector<int>  nextDirection = m->getNextDirection();
+//    newX = m->getX() + nextDirection[0];
+//    newY = m->getY() + nextDirection[1];
+//} while (checkWall(newX, newY));
+//    m->move();
+//}
 }
 void gamemanager::playerTurn() {
 
- int newX, newY;
+    int newX, newY;
 do {
     d_player.chooseDirection();
     std::vector<int> nextDirection = d_player.getNextDirection();
     newX = d_player.getX() + nextDirection[0];
     newY = d_player.getY() + nextDirection[1];
 
-    // For debugging purposes
-  //  std::cout << "Player Position: (" << d_player.getX() << ", " << d_player.getY() << ")" << std::endl;
-   // std::cout << "Next Position: (" << newX << ", " << newY << ")" << std::endl;
+    //For debugging purposes
+   std::cout << "Player Position: (" << d_player.getX() << ", " << d_player.getY() << ")" << std::endl;
+   std::cout << "Next Position: (" << newX << ", " << newY << ")" << std::endl;
 
 } while (checkWall(newX, newY));
 
@@ -92,12 +92,11 @@ do {
                std::cout << d_player.getX() << "  " << d_player.getY();
 
 
-
 }
 void gamemanager::startGame() {
 
     bool gameIsEnded = false;
-    while (!gameIsEnded) {
+   while (!gameIsEnded) {
     d_ruins.initializeRuins(d_player, d_monsters);
     d_ruins.render();
     playerTurn();
