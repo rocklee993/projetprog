@@ -4,12 +4,13 @@
 using std::ostream;
 #include "character.h"
 #include "monster.h"
+#include "equipement.h"
 
 
 class player : public character
 {
     public:
-        player(int x,int y,double health,double pointForce,bool player,char symbol);
+        player(int x,int y,double health,double pointForce,bool player,char symbol, int solide_epee=5, int solide_armure=5);
         int bourse() const;
         void showstats(std::ostream& ost) const;
         bool treasurefound();
@@ -21,12 +22,11 @@ class player : public character
         void chooseDirection() override;
 
 
-
-    protected:
-
     private:
         int d_bourse;
         bool d_treasurefound;
+        epee d_epee;
+        armure d_armure;
 };
 
 #endif // PLAYER_H
