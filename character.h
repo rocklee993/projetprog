@@ -9,7 +9,7 @@ class character
         virtual ~character();
         void move();
         virtual void chooseDirection() = 0;
-        virtual void getDamage(double damage) = 0 ;
+        void getDamage(double damage);
         virtual void attack(character& character) = 0 ;
         int getX() const;
         int getY() const;

@@ -18,7 +18,6 @@ class player : public character
         void addbourse();
         void foundTreasure();
         void attack(character& character) override;
-        void getDamage(double damage) override;
         void chooseDirection() override;
 
 

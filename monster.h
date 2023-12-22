@@ -9,7 +9,6 @@ class monster : public character
 {
     public:
         monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite);
-        void getDamage(double damage) override;
         void attack(character& character) override ;
         void  getRandomDirection();
 

@@ -7,12 +7,10 @@ character{x,y,health,pointForce,false,'m'},d_pourcentageHabilite{pourcentageHabi
 }
 
 void monster::attack(character& character) {
-character.getDamage(d_pointForce);
+    double force = character::getPointForce()*d_pourcentageHabilite;
+    character.getDamage(force);
 }
 
-void monster::getDamage(double damage) {
- d_health -= damage;
-}
 
 void monster::getRandomDirection() {
 
