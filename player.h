@@ -18,7 +18,7 @@ class player : public character
         void addbourse();
         void foundTreasure();
         void attack(character& character) override;
-        void chooseDirection() override;
+        void chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character = nullptr) override;
 
 
     private:

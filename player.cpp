@@ -4,7 +4,7 @@
 #include "goto_xy_windows.h"
 
 player::player(int x,int y,double health,double pointForce,bool player,char symbol, int solide_epee, int solide_armure):
-    character(x,y,health,pointForce,true,'p') , d_bourse{0} , d_treasurefound{false}, d_epee{solide_epee}, d_armure{solide_armure}
+    character(x,y,health,pointForce,true,symbol) , d_bourse{0} , d_treasurefound{false}, d_epee{solide_epee}, d_armure{solide_armure}
 {
 
 }
@@ -38,7 +38,7 @@ void player::attack(character& character) {
 }
 
 
-void player::chooseDirection() {
+void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character) {
 
     bool validecharacter = false;
 
@@ -87,6 +87,14 @@ void player::chooseDirection() {
         }
 
     } while (!validecharacter);
+
+    if(checkWall(wallPositions)) {
+            std::cout << "there is a wall in choose another direction: " << std::endl;
+            chooseDirection(wallPositions);
+    }
+    move();
+
+
 
 }
 char  player::getDirection() const

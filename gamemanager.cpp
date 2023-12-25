@@ -33,34 +33,25 @@ bool  gamemanager::checkWall(int x , int y) const {
 void gamemanager::monsterTurn(){
 
 
-// for (auto& m : d_monsters) {
-//
-//        int newX, newY;
-//do {
-//   m->chooseDirection();
-// std::vector<int>  nextDirection = m->getNextDirection();
-//    newX = m->getX() + nextDirection[0];
-//    newY = m->getY() + nextDirection[1];
-//} while (checkWall(newX, newY));
-//    m->move();
-//}
-}
+ for (auto& m : d_monsters) {
+
+    if(m->getSymbol() == 'm') {
+    m->chooseDirection(d_ruins.getWallPositions());
+    } else {
+        m->chooseDirection(d_ruins.getWallPositions(),&d_player);
+    }
+    int newX = m->getX();
+    int newY = m->getY();
+
+
+ }}
 void gamemanager::playerTurn() {
 
-    int newX, newY;
-do {
-    d_player.chooseDirection();
-    std::vector<int> nextDirection = d_player.getNextDirection();
-    newX = d_player.getX() + nextDirection[0];
-    newY = d_player.getY() + nextDirection[1];
 
-    //For debugging purposes
-   std::cout << "Player Position: (" << d_player.getX() << ", " << d_player.getY() << ")" << std::endl;
-   std::cout << "Next Position: (" << newX << ", " << newY << ")" << std::endl;
+    d_player.chooseDirection(d_ruins.getWallPositions());
+    int newX = d_player.getX();
+    int newY = d_player.getY();
 
-} while (checkWall(newX, newY));
-
- std::cout << "non wall" << std::endl;
     if (d_ruins.isTreasure(newX,newY))
     {
         exit(0);
@@ -82,14 +73,6 @@ do {
     }
 }
         d_player.showstats(cout);
-
-        d_player.move();
-
-
-        std::cout << "Next Position: (" << newX << ", " << newY << ")" << std::endl;
-            std::cout << "Player Position: (" << d_player.getX() << ", " << d_player.getY() << ")" << std::endl;
-
-               std::cout << d_player.getX() << "  " << d_player.getY();
 
 
 }

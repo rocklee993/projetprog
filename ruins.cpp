@@ -31,11 +31,13 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
         for (int j = 0; j < width; j++) {
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
                 grid[i][j] = wallchar;
+                wallPositions.push_back(std::make_pair(j, i));
             } else {
                 if (wall == false && coin == false) {
-                    if (i != p.getY() && j != p.getX() && grid[i][j] != treasurechar) {
+                    if (grid[i][j] == '.') {
                         if (rand() % 100 < 20) {
                             grid[i][j] = wallchar;
+                            wallPositions.push_back(std::make_pair(j, i));
                         }
                         if (rand() % 100 < 20) {
                             // coinPositions.push_back({j, i});
@@ -98,6 +100,10 @@ bool ruins::isTreasure(int x, int y) const
 
     return grid[y][x] == treasurechar;
 }
+std::vector<std::pair<int, int>>& ruins::getWallPositions(){
+return wallPositions;
+};
+
 
 
 

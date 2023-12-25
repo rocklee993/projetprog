@@ -40,15 +40,22 @@
 		</Compiler>
 		<Unit filename="character.cpp" />
 		<Unit filename="character.h" />
+		<Unit filename="equipement.cpp" />
+		<Unit filename="equipement.h" />
 		<Unit filename="gamemanager.cpp" />
 		<Unit filename="gamemanager.h" />
+		<Unit filename="goto_xy_windows.cpp" />
+		<Unit filename="goto_xy_windows.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monster.cpp" />
 		<Unit filename="monster.h" />
 		<Unit filename="monsterBlind.cpp" />
 		<Unit filename="monsterBlind.h" />
+		<Unit filename="monsterSmart.cpp" />
+		<Unit filename="monsterSmart.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
+		<Unit filename="point.h" />
 		<Unit filename="ruins.cpp" />
 		<Unit filename="ruins.h" />
 		<Extensions />
