@@ -84,6 +84,7 @@ void gamemanager::playerTurn() {
 }
 
 
+<<<<<<< HEAD
       for (auto& m : d_monsters) {
     if (d_player.getX() == m->getX() && d_player.getY() == m->getY()) {
         d_player.attack(*m); // it's working
@@ -96,13 +97,34 @@ void gamemanager::playerTurn() {
    // d_monsters.end());
 
         if (m != nullptr) {
+=======
+      for (auto it = d_monsters.begin(); it != d_monsters.end(); ) {
+    auto& m = *it;
+
+    if (d_player.getX() == m->getX() && d_player.getY() == m->getY()) {
+        d_player.attack(*m);
+
+        if (m->getHealth() > 0) {
+>>>>>>> lyes
             m->attack(d_player);
             if (d_player.getHealth() <= 0) {
                 gameover();
             }
+<<<<<<< HEAD
         }
     }
 
+=======
+        } else {
+            // Monster is dead
+            cout << "Monster defeated!" << std::endl;
+            it = d_monsters.erase(it);  // Remove the monster from the vector
+            continue;  // Skip the rest of the loop
+        }
+    }
+
+    ++it;  // Move to the next monster
+>>>>>>> lyes
 }
 
 
