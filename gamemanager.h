@@ -19,6 +19,7 @@ class gamemanager
         player d_player;
       std::vector<std::unique_ptr<monster>> d_monsters;
         ruins d_ruins;
+        bool d_gameEnded;
 
 };
 

@@ -14,13 +14,11 @@ void monsterSmart::theShortestRoadToPlayer(int targetX,int targetY,std::vector<s
         double minDistance = INT_MAX;
         int bestX = 0;
         int bestY = 0;
-
         for (int dx = -1; dx <= 1; ++dx) {
             for (int dy = -1; dy <= 1; ++dy) {
                 if (dx == 0 && dy == 0) {
                     continue;  // Ne pas rester sur place
                 }
-
                 int newX = getX() + dx;
                 int newY = getY() + dy;
                 d_nextDirection[0] = dx;
@@ -53,9 +51,6 @@ void monsterSmart::chooseDirection(std::vector<std::pair<int, int>>& wallPositio
 
     int directionX = character->getX() - getX();
     int directionY = character->getY() - getY();
-
-    // Limiter la distance à 1
-    const int moveDistance = 1;
 
     // Coordonnées cibles
     int targetX = getX() + (directionX > 0) - (directionX < 0);

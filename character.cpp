@@ -30,10 +30,7 @@ double character::getPointForce()const{
 void character::getDamage(double damage)
 {
     d_health -= damage;
-    if(d_health <= 0)
-    {
-        d_health = 0;
-    }
+
 }
 
 void character:: move() {

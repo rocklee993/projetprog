@@ -41,14 +41,13 @@ void player::attack(character& character) {
 void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character) {
 
     bool validecharacter = false;
-
-       d_nextDirection[0] = 0;
+        d_nextDirection[0] = 0;
         d_nextDirection[1] = 0;
     do {
         validecharacter = true;
-        char character = getDirection();
+        char inputChar = getDirection();
 
-        switch (character) {
+        switch (inputChar) {
             case '1':
                 d_nextDirection[0] = -1;
                 d_nextDirection[1] = 1;

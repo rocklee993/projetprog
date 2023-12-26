@@ -7,7 +7,7 @@ character{x,y,health,pointForce,false,symbol},d_pourcentageHabilite{pourcentageH
 }
 
 void monster::attack(character& character) {
-    double force = character::getPointForce()*d_pourcentageHabilite;
+    double force = getPointForce()*d_pourcentageHabilite;
     character.getDamage(force);
 }
 
@@ -15,9 +15,10 @@ void monster::attack(character& character) {
 void monster::getRandomDirection(std::vector<std::pair<int, int>>& wallPositions) {
 
 do {
-  for(int i=0; i< 2;i++){
-     d_nextDirection[i] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1 et 1
-  }
+
+     d_nextDirection[0] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1  et 0 et 1
+     d_nextDirection[1] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1  et 0 et 1
+
 
 } while(checkWall(wallPositions));
 

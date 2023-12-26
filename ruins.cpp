@@ -22,6 +22,7 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
     grid[y][x] = p.getSymbol();
 
     for (auto& m : monsters) {
+
         int mx = m->getX();
         int my = m->getY();
         grid[my][mx] = m->getSymbol();
