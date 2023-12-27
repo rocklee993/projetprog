@@ -18,12 +18,12 @@ void player::addbourse(){
     d_bourse+=10;
 }
 
-void player::showstats(std::ostream& ost)const{
-   ost<<"player stats : "<<std::endl;
-   ost<<"gold :"<<d_bourse <<"$"<<std::endl;
-   ost<<"health : "<< std::to_string(getHealth())<<std::endl;
-   ost<<"Force Point :"<<std::to_string(getPointForce())<<std::endl;
-   }
+//void player::showstats(std::ostream& ost)const{
+//   ost<<"player stats : "<<std::endl;
+//   ost<<"gold :"<<d_bourse <<"$"<<std::endl;
+//   ost<<"health : "<< std::to_string(getHealth())<<std::endl;
+//   ost<<"Force Point :"<<std::to_string(getPointForce())<<std::endl;
+//   }
 
 bool player::treasurefound() {
     return d_treasurefound;
@@ -41,46 +41,31 @@ void player::attack(character& character) {
 void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character) {
 
     bool validecharacter = false;
-        d_nextDirection[0] = 0;
-        d_nextDirection[1] = 0;
     do {
         validecharacter = true;
-        char inputChar = getDirection();
+        char character = getDirection();
 
-        switch (inputChar) {
-            case '1':
-                d_nextDirection[0] = -1;
-                d_nextDirection[1] = 1;
+        switch (character) {
+            case '4':
+                goto_xy(getX()-1, getY());
+                d_posX -=1;
+                break;
+            case '6':
+                goto_xy(getX()+1, getY());
+                d_posX +=1;
+                break;
+            case '8':
+                goto_xy(getX(), getY()+1);
+                d_posY-=1;
                 break;
             case '2':
-                d_nextDirection[1] = 1;
-                break;
-            case '3':
-                d_nextDirection[0] = 1;
-                d_nextDirection[1] = 1;
-                break;
-            case '4':
-                d_nextDirection[0] = -1;
+                goto_xy(getX(), getY()-1);
+                d_posY +=1;
                 break;
             case '5':
                 std::cout << "Player chose not to move" << std::endl;
                 break;
-            case '6':
-                d_nextDirection[0] = 1;
-                break;
-            case '7':
-                d_nextDirection[0] = -1;
-                d_nextDirection[1] = -1;
-                break;
-            case '8':
-                d_nextDirection[1] = -1;
-                break;
-            case '9':
-                d_nextDirection[0] = 1;
-                d_nextDirection[1] = -1;
-                break;
             default:
-                std::cout << "Invalid direction. Please use 1/2/3/4/5/6/7/8/9." << std::endl;
                 validecharacter = false;
                 continue;
         }
@@ -98,8 +83,6 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
 }
 char  player::getDirection() const
 {
-    std::cout << "What will be your next move? (1/2/3/4/5/6/7/8/9): " << std::endl;
-    char direction;
-    std::cin >> direction;
-    return direction;
+
+    return getchar();
 }
