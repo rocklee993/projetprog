@@ -40,8 +40,12 @@
 		</Compiler>
 		<Unit filename="character.cpp" />
 		<Unit filename="character.h" />
+		<Unit filename="equipement.cpp" />
+		<Unit filename="equipement.h" />
 		<Unit filename="gamemanager.cpp" />
 		<Unit filename="gamemanager.h" />
+		<Unit filename="goto_xy_windows.cpp" />
+		<Unit filename="goto_xy_windows.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monster.cpp" />
 		<Unit filename="monster.h" />

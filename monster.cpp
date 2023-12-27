@@ -1,4 +1,5 @@
 #include "monster.h"
+#include "goto_xy_windows.h"
 
 monster::monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite):
 character{x,y,health,pointForce,false,'m'},d_pourcentageHabilite{pourcentageHabilite}
@@ -12,13 +13,32 @@ void monster::attack(character& character) {
 }
 
 
-void monster::getRandomDirection() {
+void monster::turnLeft()
+{
+    d_posX -=1;
 
+}
 
-  for(int i=0; i< 2;i++){
-     d_nextDirection[i] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1 et 1
-  }
+void monster::turnRigth()
+{
+    d_posX +=1;
+}
 
+void monster::turnHaut()
+{
+    d_posY +=1;
+}
+
+void monster::turnBas()
+{
+    d_posX -=1;
+
+}
+
+void  monster::getRandomDirection()
+{
+    d_posX +=1;
+    goto_xy(d_posX, d_posY);
 }
 
 
