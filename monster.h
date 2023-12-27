@@ -3,23 +3,22 @@
 #include <memory>
 #include <vector>
 #include "character.h"
-
+#include "player.h"
 
 class monster : public character
 {
     public:
-        monster(int x,int y);
-        virtual ~monster();
-        void addmonster(monster& m);
-        std::vector<std::unique_ptr<monster>> monsters;
+        monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite);
+        void attack(character& character) override ;
+        void  getRandomDirection();
 
-
-    protected:
 
     private:
+        int d_pourcentageHabilite;
         static constexpr bool d_isPlayer = false;
 
 
 };
+
 
 #endif // MONSTER_H

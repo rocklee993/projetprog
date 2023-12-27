@@ -1,26 +1,30 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-
+#include <vector>
 
 class character
 {
     public:
-        character(int x,int y,int health,int damage,bool player,char symbol);
-        void move(int dx, int dy);
+        character(int x,int y,double health,double pointForce,bool player,char symbol);
         virtual ~character();
-        int getx()const;
-        int gety()const;
-        int gethealth()const;
-        int getdamage()const;
+        void move();
+        virtual void chooseDirection() = 0;
+        void getDamage(double damage);
+        virtual void attack(character& character) = 0 ;
+        int getX() const;
+        int getY() const;
+        int getHealth() const;
         char getSymbol() const;
+        double getPointForce() const;
+        std::vector<int> getNextDirection() const;
 
     protected:
-        int d_health, d_damage;
-        int d_posx,d_posy;
+        double d_health;
+        int d_posX,d_posY;
         bool d_isPlayer;
         char d_symbol;
-
-    private:
+        double d_pointForce;
+        std::vector<int> d_nextDirection;
 };
 
 #endif // CHARACTER_H
