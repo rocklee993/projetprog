@@ -1,16 +1,17 @@
 #include "ruins.h"
 #include "character.h"
 #include <cstdlib>
+#include "goto_xy_windows.h"
 
-ruins::ruins(int x, int y): width {x}, height {y}
+ruins::ruins(int x, int y): d_width {x}, d_height {y}
 {
     grid = std::vector<std::vector<char>>(y, std::vector<char>(x, '.'));
 }
 
 
 void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& monsters) {
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
+    for (int i = 0; i < d_height; i++) {
+        for (int j = 0; j < d_width; j++) {
             if (grid[i][j] != wallchar && grid[i][j] != coinchar && grid[i][j] != treasurechar)
                 grid[i][j] = '.';
         }
@@ -27,9 +28,9 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
         grid[my][mx] = m->getSymbol();
     }
 
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+    for (int i = 0; i < d_height; i++) {
+        for (int j = 0; j < d_width; j++) {
+            if (i == 0 || i == d_height - 1 || j == 0 || j == d_width - 1) {
                 grid[i][j] = wallchar;
             } else {
                 if (wall == false && coin == false) {
@@ -45,8 +46,8 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
                             int treasureX, treasureY;
                             do {
                                 srand(static_cast<unsigned int>(time(0)));
-                                treasureX = rand() % (width - 2) + 1;
-                                treasureY = rand() % (height - 2) + 1;
+                                treasureX = rand() % (d_width - 2) + 1;
+                                treasureY = rand() % (d_height - 2) + 1;
                             } while (grid[treasureY][treasureX] != '.');
                             grid[treasureY][treasureX] = treasurechar;
                             treasure = true;
@@ -66,9 +67,9 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
 
 void ruins::render()
 {
-    for (int i = 0; i < height; ++i)
+    for (int i = 0; i < d_height; ++i)
     {
-        for (int j = 0; j < width; ++j)
+        for (int j = 0; j < d_width; ++j)
         {
             std::cout << grid[i][j] <<' ';
         }
@@ -97,6 +98,17 @@ bool ruins::isTreasure(int x, int y) const
 {
 
     return grid[y][x] == treasurechar;
+}
+
+int ruins::width() const
+{
+    return d_width;
+}
+
+
+int ruins::height() const
+{
+    return d_height;
 }
 
 

@@ -22,6 +22,8 @@ class ruins
         //bool isOutOfBounds(int x, int y) const;
         bool isGold(int x, int y) const;
         bool isTreasure(int x, int y) const;
+        int width() const;
+        int height() const;
 
 
         std::vector<std::pair<int, int>>& getCoinPositions() ;
@@ -29,7 +31,8 @@ class ruins
 
 
     private:
-        int width,height;
+        int d_width;
+        int d_height;
         bool wall = false;
         bool coin = false;
         bool treasure = false;
