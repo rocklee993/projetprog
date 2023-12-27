@@ -41,17 +41,31 @@ void gamemanager::monsterTurn(){
 
 
  for (auto& m : d_monsters) {
-        cout << "hello";
-
-
     if(m->getSymbol() == 'm') {
     m->chooseDirection(d_ruins.getWallPositions());
     } else {
         m->chooseDirection(d_ruins.getWallPositions(),&d_player);
     }
-    int newX = m->getX();
-    int newY = m->getY();
+
+    if (d_player.getX() == m->getX() && d_player.getY() == m->getY()) {
+        m->attack(d_player);
+        if (d_player.getHealth() <= 0) {
+                gameover();
+            }
+
+    d_player.attack(*m); // it's working
+
+     if (m->getHealth() <= 0 && m != nullptr ) {
+    auto it = std::remove(d_monsters.begin(), d_monsters.end(), m);
+    d_monsters.erase(it, d_monsters.end());
+
+}
         }
+        }
+
+
+
+         // it's working
 
 
  }
@@ -85,29 +99,28 @@ void gamemanager::playerTurn() {
 
 
       for (auto& m : d_monsters) {
+            if(m != nullptr) {
+
     if (d_player.getX() == m->getX() && d_player.getY() == m->getY()) {
         d_player.attack(*m); // it's working
 
-    //   d_monsters.erase(
-    //std::remove_if(d_monsters.begin(), d_monsters.end(),
-      //  [](const std::unique_ptr<monster>& m) {
-        //    return m != nullptr && m->getHealth() <= 0;
-       // }),
-   // d_monsters.end());
+     if (m->getHealth() <= 0 && m != nullptr ) {
+    auto it = std::remove(d_monsters.begin(), d_monsters.end(), m);
+    d_monsters.erase(it, d_monsters.end());
 
-        if (m != nullptr) {
-            m->attack(d_player);
-            if (d_player.getHealth() <= 0) {
+} else {
+    m->attack(d_player);
+       if (d_player.getHealth() <= 0) {
                 gameover();
             }
-        }
+}
+
+            }
+
+
     }
 
 }
-
-
-d_player.showstats(cout);
-
 }
 void gamemanager::startGame() {
 
@@ -117,11 +130,10 @@ void gamemanager::startGame() {
     d_ruins.render();
     playerTurn();
     monsterTurn();
+    d_player.showstats(cout);
+// ff
 }
 }
 void gamemanager::win() {
 
 }
-
-
-

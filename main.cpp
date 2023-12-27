@@ -100,9 +100,9 @@ int main()
     player play(8,5,100.0,100.0,true,'p');
    // monsters.push_back(std::make_unique<monster>(1, 1, 10, 10, false, 'm', 20));
     gamemanager gm(play,r);
-    gm.addMonster(std::make_unique<monsterBlind>(1, 1, 10, 10, false, 'm', 0.20));
-    gm.addMonster(std::make_unique<monsterBlind>(1, 2, 10, 10, false, 'm', 0.20));
-     gm.addMonster(std::make_unique<monsterSmart>(1, 3, 10, 10, false, 'w', 0.20));
+    gm.addMonster(std::make_unique<monsterBlind>(1, 1, 10, 10, false, 'm', 1));
+    gm.addMonster(std::make_unique<monsterBlind>(1, 2, 10, 10, false, 'm', 1));
+     gm.addMonster(std::make_unique<monsterSmart>(1, 3, 10, 10, false, 'w', 1));
     gm.startGame();
     //int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite
 

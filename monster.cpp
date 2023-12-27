@@ -9,6 +9,7 @@ character{x,y,health,pointForce,false,symbol},d_pourcentageHabilite{pourcentageH
 void monster::attack(character& character) {
     double force = getPointForce()*d_pourcentageHabilite;
     character.getDamage(force);
+    std::cout<< "The monster attack the player with '" << force << "' force";
 }
 
 
