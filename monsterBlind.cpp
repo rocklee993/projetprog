@@ -9,7 +9,7 @@ monsterBlind::monsterBlind(int x,int y,int health,double pointForce,bool player,
 }
 
 void monsterBlind::chooseDirection() {
-monster::getRandomDirection();
+    getRandomDirection();
 
 }
 

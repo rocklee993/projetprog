@@ -1,7 +1,8 @@
 #include "character.h"
 #include "goto_xy_windows.h"
 
-character::character(int x,int y,double health,double pointForce,bool player,char symbol):d_posX{x},d_posY{y},d_health{health},d_pointForce{pointForce},d_isPlayer{player},d_symbol{symbol},d_nextDirection{0,0}
+character::character(int x,int y,double health,double pointForce,bool player,char symbol):
+    d_posX{x},d_posY{y},d_health{health},d_pointForce{pointForce},d_isPlayer{player},d_symbol{symbol},d_nextDirection{0,0}
 {
     //ctor
 }
@@ -21,6 +22,7 @@ int character::getHealth()const{
     return d_health;
 }
 char character::getSymbol()const{
+    goto_xy(getX(),getY());
     return d_symbol;
 }
 double character::getPointForce()const{

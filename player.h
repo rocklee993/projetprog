@@ -1,29 +1,31 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-#include "character.h"
-#include "defence.h"
 using std::ostream;
-
+#include "character.h"
+#include "monster.h"
+#include "equipement.h"
 
 
 class player : public character
 {
     public:
-        player(int x,int y, int solide_epee, int solide_armure);
-
+        player(int x,int y,double health,double pointForce,bool player,char symbol, int solide_epee=5, int solide_armure=5);
         int bourse() const;
-        void showstats(std::ostream& ost)const;
+        void showstats(std::ostream& ost) const;
         bool treasurefound();
+        char getDirection() const;
         void addbourse();
         void foundTreasure();
-    protected:
+        void attack(character& character) override;
+        void chooseDirection() override;
+
 
     private:
-        epee d_epee;
-        armure d_armure;
         int d_bourse;
         bool d_treasurefound;
+        epee d_epee;
+        armure d_armure;
 };
 
 #endif // PLAYER_H
