@@ -130,7 +130,7 @@ void gamemanager::startGame() {
     d_ruins.render();
     playerTurn();
     monsterTurn();
-   // d_player.showstats(cout);
+    d_player.showstats(cout);
 // ff
 }
 }
