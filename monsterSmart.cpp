@@ -1,5 +1,6 @@
 #include "monsterSmart.h"
 #include <cmath>
+#include <climits>
 monsterSmart::monsterSmart(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite):
     monster{x,y,health,pointForce,false,symbol,pourcentageHabilite}
 {

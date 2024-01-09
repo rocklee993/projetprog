@@ -41,8 +41,8 @@ void ruins::initializeRuins(player& p, std::vector<std::unique_ptr<monster>>& mo
                             wallPositions.push_back(std::make_pair(j, i));
                         }
                         if (rand() % 100 < 20) {
-                            // coinPositions.push_back({j, i});
-                            // grid[i][j] = coinchar;
+                            coinPositions.push_back({j, i});
+                            //grid[i][j] = coinchar;
                         }
                         if (!treasure) {
                             int treasureX, treasureY;
