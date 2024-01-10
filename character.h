@@ -8,7 +8,8 @@ class character
         character(int x,int y,double health,double pointForce,bool player,char symbol);
         virtual ~character();
         void move();
-        virtual void chooseDirection() = 0;
+        virtual bool checkWall(std::vector<std::pair<int, int>>& wallPositions) const;
+        virtual void chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character = nullptr ) = 0;
         void getDamage(double damage);
         virtual void attack(character& character) = 0 ;
         int getX() const;
@@ -19,10 +20,10 @@ class character
         std::vector<int> getNextDirection() const;
 
     protected:
-        double d_health;
-        int d_posX,d_posY;
+        double d_health; //point de vie
+        int d_posX,d_posY; //coordonnée x et y du character
         bool d_isPlayer;
-        char d_symbol;
+        char d_symbol; //symbole des characters
         double d_pointForce;
         std::vector<int> d_nextDirection;
 };

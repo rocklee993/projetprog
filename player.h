@@ -18,7 +18,8 @@ class player : public character
         void addbourse();
         void foundTreasure();
         void attack(character& character) override;
-        void chooseDirection() override;
+        void chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character = nullptr) override ;
+        void chooseDirections();
 
 
     private:
@@ -26,6 +27,7 @@ class player : public character
         bool d_treasurefound;
         epee d_epee;
         armure d_armure;
+        static constexpr double d_problabilty{0.9};
 };
 
 #endif // PLAYER_H

@@ -51,6 +51,8 @@
 		<Unit filename="monster.h" />
 		<Unit filename="monsterBlind.cpp" />
 		<Unit filename="monsterBlind.h" />
+		<Unit filename="monsterSmart.cpp" />
+		<Unit filename="monsterSmart.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
 		<Unit filename="ruins.cpp" />
