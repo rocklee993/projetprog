@@ -86,10 +86,8 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
 
         switch (characters) {
             case '4':
-                if(checkWall(wallPositions)) {
                     d_posX -=1;
                     break;
-                }
             case '6':
                 d_posX +=1;
                 break;
@@ -103,9 +101,7 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
                 attack(*character);
                 std::cout << "Player chose not to move" << std::endl;
                 break;
-            case 'm':
-                    showstats(std::cout);
-                    break;
+
             default:
                 validecharacter = false;
                 continue;

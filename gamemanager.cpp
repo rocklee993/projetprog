@@ -76,8 +76,8 @@ void gamemanager::monsterTurn(){
 void gamemanager::playerTurn() {
 
 
-    //d_player.chooseDirection(d_ruins.getWallPositions());
-    d_player.chooseDirections();
+    d_player.chooseDirection(d_ruins.getWallPositions());
+    //d_player.chooseDirections();
     int newX = d_player.getX();
     int newY = d_player.getY();
 
