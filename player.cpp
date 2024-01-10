@@ -114,6 +114,7 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
     } while (!validecharacter);
 
      if(checkWall(wallPositions)) {
+            std::cout<<"hbhjv";
             chooseDirection(wallPositions);
     }
     move();

@@ -1,44 +1,31 @@
 #include "monster.h"
-#include "goto_xy_windows.h"
 
 monster::monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite):
-character{x,y,health,pointForce,false,'m'},d_pourcentageHabilite{pourcentageHabilite}
+character{x,y,health,pointForce,false,symbol},d_pourcentageHabilite{pourcentageHabilite}
 {
 
 }
 
 void monster::attack(character& character) {
-    double force = character::getPointForce()*d_pourcentageHabilite;
+    double force = getPointForce()*d_pourcentageHabilite;
     character.getDamage(force);
+    std::cout<< "The monster attack the player with '" << force << "' force";
 }
 
 
-void monster::turnLeft()
-{
-    d_posX -=1;
+void monster::getRandomDirection(std::vector<std::pair<int, int>>& wallPositions) {
 
-}
+do {
 
-void monster::turnRigth()
-{
-    d_posX +=1;
-}
+     d_nextDirection[0] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1  et 0 et 1
+     d_nextDirection[1] = rand() % 3 - 1;// Génère un nombre aléatoire entre -1  et 0 et 1
 
-void monster::turnHaut()
-{
-    d_posY +=1;
-}
 
-void monster::turnBas()
-{
-    d_posX -=1;
+} while(checkWall(wallPositions));
 
-}
+move();
 
-void  monster::getRandomDirection()
-{
-    d_posX +=1;
-    goto_xy(d_posX, d_posY);
+
 }
 
 
