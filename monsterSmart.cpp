@@ -42,7 +42,7 @@ void monsterSmart::theShortestRoadToPlayer(int targetX,int targetY,std::vector<s
         d_nextDirection[0] = bestX;
         d_nextDirection[1] = bestY;
 
-        //move();
+        move();
 
 }
 void monsterSmart::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character) {

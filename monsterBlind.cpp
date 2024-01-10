@@ -10,7 +10,7 @@ monsterBlind::monsterBlind(int x,int y,int health,double pointForce,bool player,
 
 void monsterBlind::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character)
 {
-    getRandomDirection(wallPositions);
+    monster::getRandomDirection(wallPositions);
 
 }
 

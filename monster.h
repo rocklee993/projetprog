@@ -10,12 +10,7 @@ class monster : public character
     public:
         monster(int x,int y,int health,double pointForce,bool player,char symbol,int pourcentageHabilite);
         void attack(character& character) override ;
-        void turnLeft();
-        void turnRigth();
-        void turnHaut();
-        void turnBas();
-        void  getRandomDirection();
-
+        void  getRandomDirection(std::vector<std::pair<int, int>>& wallPositions);
 
     private:
         int d_pourcentageHabilite;
