@@ -101,8 +101,6 @@ bool ruins::isTreasure(int x, int y) const
 
     return grid[y][x] == treasurechar;
 }
-
-
 std::vector<std::pair<int, int>>& ruins::getWallPositions(){
 return wallPositions;
 };

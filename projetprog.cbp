@@ -55,6 +55,7 @@
 		<Unit filename="monsterSmart.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
+		<Unit filename="point.h" />
 		<Unit filename="ruins.cpp" />
 		<Unit filename="ruins.h" />
 		<Extensions />
