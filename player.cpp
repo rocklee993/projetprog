@@ -101,20 +101,19 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
                 break;
             case '1':
                 d_posX -=1;
-                d_posY -=1;
+                d_posY  +=1;
                 break;
             case '3':
                     d_posX +=1;
-                    d_posY -=1;
+                    d_posY +=1;
                     break;
             case '7':
                 d_posX -=1;
-                d_posY +=1;
+                d_posY -=1;
                 break;
             case '9':
                     d_posX +=1;
-                    d_posY +=1;
-                    goto_xy(getX(),getY());
+                    d_posY -=1;
                     break;
             case '5':
                 attack(*character);

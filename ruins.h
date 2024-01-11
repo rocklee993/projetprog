@@ -22,6 +22,9 @@ class ruins
         //bool isOutOfBounds(int x, int y) const;
         bool isGold(int x, int y) const;
         bool isTreasure(int x, int y) const;
+        int heights() const;
+        int widths() const;
+        char grids(int x, int y) const;
         std::vector<std::pair<int, int>>& getCoinPositions();
         std::vector<std::pair<int, int>>& getWallPositions();
 

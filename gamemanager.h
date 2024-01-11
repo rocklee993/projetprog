@@ -8,6 +8,7 @@ class gamemanager
 {
     public: gamemanager(player& player, ruins& ruins);
          void addMonster(std::unique_ptr<monster> monster);
+         bool deplacementValide(int x, int y);
         void startGame();
         void playerTurn();
         void monsterTurn();

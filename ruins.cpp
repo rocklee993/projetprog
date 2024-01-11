@@ -106,7 +106,20 @@ return wallPositions;
 };
 
 
+char ruins::grids(int x, int y) const
+{
+    return grid[y][x];
+}
 
+int ruins::widths() const
+{
+    return width;
+}
+
+int ruins::heights() const
+{
+    return height;
+}
 
 
 
