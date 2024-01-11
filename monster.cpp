@@ -11,7 +11,7 @@ void monster::attack(character& character) {
     if(getRandomNumber() < d_pourcentageHabilite)
         force *= pourcentageReductionDamage;
     character.getDamage(force);
-    std::cout<< "The monster attack the player with '" << force << "' force";
+    std::cout<< "The monster attack the player with : '" << force << "' force" <<  std::endl;
 }
 
 

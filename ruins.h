@@ -24,6 +24,10 @@ class ruins
         bool isTreasure(int x, int y) const;
         std::vector<std::pair<int, int>>& getCoinPositions();
         std::vector<std::pair<int, int>>& getWallPositions();
+        void setExit();
+        void createExit();
+        std::vector<int> getExitPosition() const ;
+        bool getExit() const;
 
 
     private:
@@ -35,10 +39,13 @@ class ruins
         bool treasure = false;
         std::vector<std::pair<int, int>> wallPositions;
         std::vector<std::vector<char>> grid;
+        static constexpr char exitchar = 'S';
         static constexpr char wallchar = '#';
         std::vector<std::pair<int, int>> coinPositions;
         static constexpr char coinchar = '$';
         static constexpr char treasurechar = 't';
+        bool showExit =false;
+        std::vector<int> exitPosition;
 
 
 };

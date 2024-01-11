@@ -13,12 +13,13 @@ class player : public character
         player(int x,int y,double health,double pointForce,bool player,char symbol, int solide_epee=5, int solide_armure=5);
         int bourse() const;
         void showstats(std::ostream& ost) const;
-        bool treasurefound();
+        bool getTreasurefound();
         char getDirection() const;
         void addbourse();
         void foundTreasure();
         void attack(character& character) override;
         void chooseDirection(std::vector<std::pair<int, int>>& wallPositions,character* character = nullptr) override;
+
 
 
     private:

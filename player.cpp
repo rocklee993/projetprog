@@ -25,7 +25,7 @@ void player::showstats(std::ostream& ost)const{
    ost<<"Force Point :"<<std::to_string(getPointForce())<<std::endl;
    }
 
-bool player::treasurefound() {
+bool player::getTreasurefound() {
     return d_treasurefound;
 }
 void player::foundTreasure() {
@@ -36,10 +36,10 @@ void player::attack(character& character) {
     double force = character::getPointForce()+d_epee.solide();
     if(getRandomNumber()  < probabilityPourcentageDamage)
         force *= pourcentageReductionDamage;
-
     d_epee.perd();
-
     character.getDamage(force);
+
+    std::cout << "The player attack the enemy with : '" << force << "' force " << std:: endl;
 }
 
 
@@ -92,6 +92,7 @@ void player::chooseDirection(std::vector<std::pair<int, int>>& wallPositions,cha
 
     } while (!validecharacter);
 
+
     if(checkWall(wallPositions)) {
             std::cout << "there is a wall in choose another direction: " << std::endl;
             chooseDirection(wallPositions);
@@ -108,3 +109,4 @@ char  player::getDirection() const
     std::cin >> direction;
     return direction;
 }
+

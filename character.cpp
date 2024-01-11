@@ -44,10 +44,7 @@ d_nextDirection[1] = 0;
 }
 
 double character::getRandomNumber() const {
-    std::cout << static_cast<double>(std::rand()) / RAND_MAX;
      return static_cast<double>(std::rand()) / RAND_MAX;
-
-
 }
 
 
