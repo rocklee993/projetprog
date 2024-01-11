@@ -26,6 +26,7 @@ class player : public character
         bool d_treasurefound;
         epee d_epee;
         armure d_armure;
+        static  constexpr double probabilityPourcentageDamage {0.8};
 };
 
 #endif // PLAYER_H

@@ -26,10 +26,10 @@ armure::armure(int solide):
 
 void equipement::perd()
 {
-    d_solide -=1;
-    if(d_solide <= 0)
+
+    if(d_solide > 0)
     {
-        d_solide = 1;
+        d_solide -=1;
     }
 }
 

@@ -1,5 +1,6 @@
 #include "character.h"
 #include "goto_xy_windows.h"
+#include <iostream>
 
 character::character(int x,int y,double health,double pointForce,bool player,char symbol):d_posX{x},d_posY{y},d_health{health},d_pointForce{pointForce},d_isPlayer{player},d_symbol{symbol},d_nextDirection{0,0}
 {
@@ -21,6 +22,7 @@ int character::getHealth()const{
     return d_health;
 }
 char character::getSymbol()const{
+   // goto_xy(getX(),getY());
     return d_symbol;
 }
 double character::getPointForce()const{
@@ -38,6 +40,13 @@ d_posX += d_nextDirection[0];
 d_posY += d_nextDirection[1];
 d_nextDirection[0] = 0;
 d_nextDirection[1] = 0;
+
+}
+
+double character::getRandomNumber() const {
+    std::cout << static_cast<double>(std::rand()) / RAND_MAX;
+     return static_cast<double>(std::rand()) / RAND_MAX;
+
 
 }
 

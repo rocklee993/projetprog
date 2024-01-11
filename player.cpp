@@ -33,7 +33,12 @@ void player::foundTreasure() {
 }
 
 void player::attack(character& character) {
-    double force = (character::getPointForce()+d_epee.solide())*0.9;
+    double force = character::getPointForce()+d_epee.solide();
+    if(getRandomNumber()  < probabilityPourcentageDamage)
+        force *= pourcentageReductionDamage;
+
+    d_epee.perd();
+
     character.getDamage(force);
 }
 
